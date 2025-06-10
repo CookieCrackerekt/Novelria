@@ -120,16 +120,6 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end user-dd animated"
                                 aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="mdi mdi-email me-1 ms-1"></i> Inbox</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="mdi mdi-settings me-1 ms-1"></i> Account Setting</a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="javascript:void(0)"
                                     onclick="event.preventDefault(); document.getElementById('keluar-app').submit();">
                                     <i class="fa fa-power-off me-1 ms-1"></i> Logout
@@ -249,8 +239,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer text-center"> Web Programming. Studi Kasus Toko Online <a
-                    href="https://bsi.ac.id/">Kuliah..? BSI Aja !!!</a> </footer>
+            <footer class="footer text-center"> Baca Novel...? ya di Novelria dong!!</a> </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->

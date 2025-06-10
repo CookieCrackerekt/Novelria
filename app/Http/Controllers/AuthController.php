@@ -47,6 +47,9 @@ class AuthController extends Controller
             if ($user->role == 0) {
                 return redirect()->route('admin.dashboard');
             }
+            elseif ($user->role == 1) {
+                return redirect()->route('admin.dashboard');
+            }
 
             // Jika bukan superadmin, arahkan ke halaman biasa
             return redirect()->intended('/');
