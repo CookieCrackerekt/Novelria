@@ -1,0 +1,609 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+/*Style Untuk Nav Bar*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: #1C2226;
+    height: 50px;
+    z-index: 999;
+}
+
+.navbar h3 {
+    color: #fA6B6B;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-item {
+    color: #FFFFFF;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.2s linear;
+}
+
+.menu-item:hover,
+.is-active {
+    color: #00B4AA;
+    border-bottom: 5px solid #00B4AA;
+	border-right: none;
+	border-left : none;
+	border-top 	: none;
+}
+
+
+/*Style Untuk Sidebar*/
+.sidebar {
+    flex: 1 1 0;
+    max-width: 300px;
+    padding: 2rem 1rem;
+    background-color: #1C2226;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100vh;
+    z-index: 999;
+    transition: 0.2s linear;
+}
+
+.sidebar.is-active {
+    left: 0;
+}
+
+.sidebar h3 {
+    color: #fA6B6B;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+.sidebar p {
+    color: #fA6B6B;
+    text-transform: uppercase;
+    margin : 0 1em;
+}
+
+.sidebar .menu {
+    margin: 0 -1em;
+	flex-direction: column;
+}
+
+.sidebar .menu .menu-item {
+    display: block;
+    padding: 1.5em;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+.sidebar .menu .menu-item:hover,
+.sidebar .menu .menu-item.is-active {
+    color: #00B4AA;
+    border-right: 5px solid #00B4AA;
+	border-left : none;
+	border-top 	: none;
+	border-bottom: none;
+}
+
+/* Hamburger menu button for mobile */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 99px;
+	border: none;
+    background-color: #2e3047;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger {
+    position: relative;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+}
+
+.hamburger > span,
+.hamburger > span::before,
+.hamburger > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 99px;
+    background-color: #FFF;
+    transition-duration: .25s;
+}
+
+.hamburger > span::before {
+    content: '';
+    top: -8px;
+}
+
+.hamburger > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu-toggle.is-active .hamburger > span {
+    transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger > span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+.menu-toggle.is-active .hamburger > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* Media Query for mobile screens */
+@media (max-width: 768px) {
+    .navbar {
+        display: none; /* Hide navbar on small screens */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu on small screens */
+    }
+
+    .content {
+        padding-top: 8rem; /* Adjust content padding when sidebar is active */
+    }
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+    .sidebar {
+        display: none; /* Hide sidebar on large screens */
+    }
+}
+
+
+/*Style Untuk Login page*/
+.login-bg {
+	height:100%;
+	width:100%;
+	background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/frontend/novelria/images/login-bg.jpg');
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+
+.form-box {
+	width: 380px;
+	height: 480px;
+	position: relative;
+	margin: 6% auto;
+	background: #fff;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.form-box h1{
+	color: #1C2226;
+	text-align: center;
+	width: 100%;
+}
+
+.logreg-box {
+	width: 220px;
+	margin: 35px auto;
+	position: relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 30px;  
+}
+
+.logreg-toggle-btn {
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+}
+
+#logreg-btn {
+	top:0;
+	left:0;
+	position: absolute;
+	width:110px;
+	height:100%;
+	background: linear-gradient(to right, #FF105F, #fA6B6B);
+	border-radius: 30px;
+	transition: .5s;
+}
+
+.input-group {
+	top: 180px;
+	position: absolute;
+	width: 280px;
+	transition: .5s;
+}
+
+.input-field {
+	width: 100%;
+	padding: 10px 0;
+	margin: 5px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;
+}
+
+.check-box {
+	margin: 30px 10px 30px 0;
+}
+
+.input-group span {
+    color: #777;
+    font-size: 12px;
+    bottom: 68px;
+    position: block;
+}
+
+#login{
+	left: 50px;
+}
+
+#register{
+	left: 450px;
+}
+
+.submit-btn {
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background: linear-gradient(to right, #FF105F, #fA6B6B);
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+
+/*Style Untuk Search bar*/
+.searchBar {
+	margin-bottom: 20px; 
+	padding: 10px; 
+	width: 300px;
+}
+
+/*Style Untuk Content*/
+.content {
+	flex: 1 1 0;
+	padding: 2rem;
+	flex-grow: 1;
+	background-image: url('/frontend/novelria/images/content-bg.png');
+}
+
+.content h1 {
+	color: #1C2226;
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+
+.content p {
+	color: #707793;
+}
+
+/*Style Untuk Card novel*/
+.card-container {
+	display: grid;
+	grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+	gap: 10px;
+}
+
+.card {
+	width: 240px;
+	height: 345px;
+	border-radius: 18px;
+	overflow: hidden;
+	border: 8px solid rgba(255, 255, 255, 0.01);
+	position:relative;
+}
+
+.card-img {
+	width: 100%;
+	height:100%;
+	object-fit: cover;
+	border-radius:18px;
+}
+
+.card-title {
+	text-transform: uppercase;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+
+.card-body {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: -100%;
+	position: absolute;
+	background:#1f3d4738;
+	backdrop-filter: blur(5px);
+	border-radius: 18px;
+	color: #fff;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transition:0.5s;
+}
+
+.card-body .card-genre {
+    color: #FFFFFF; 
+	font-size: 15px;
+    font-weight: bold; 
+}
+
+.card:hover .card-body {
+	right:0;
+}
+
+/*Style Untuk Card contact*/	
+.contact-card {
+	width: 200px;
+	height: 200px;
+	border-radius: 18px;
+	overflow: hidden;
+	border: 8px solid#fff;
+	position:relative;
+}
+
+.card-contact-img {
+	width: 100%;
+	height:100%;
+	object-fit: cover;
+	border-radius:18px;
+}
+
+.card-contact-title {
+	text-transform: uppercase;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.contact-card:hover .card-body { 
+	right:0;
+}
+
+/*Style Untuk button card dan favorite*/
+.card-btn {
+    margin-top: auto;
+	color : #1F3D47;
+	background: #8fabba;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-transform: capitalize;
+	text-align: center;
+	border: none;
+	outline: none;
+	font-weight: 500; 
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.card-btn:hover {
+    background-color: #7a9ca8; 
+}
+
+.favorite-btn {
+	margin-top: auto;
+	color : #1F3D47;
+	background: #8fabba;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-transform: capitalize;
+	text-align: center;
+	border: none;
+	outline: none;
+	font-weight: 500; 
+	cursor: pointer;
+	text-decoration: none;
+	width:164px
+}
+
+.favorite-btn:hover {
+	background-color: #7a9ca8;
+}
+
+.novel-title {
+	border-radius: 4px;
+	padding: 0 22px;
+	height: 40px;
+}
+
+/*Style Untuk Add novel*/
+.novel-genre {
+	border-radius: 4px;
+	padding: 0 22px;
+	width : 209px;
+	height: 40px;
+	border: 2px solid;
+}
+
+.upload-box::file-selector-button {
+	border-radius: 4px;
+	padding: 0 16px;
+	height: 40px;
+	cursor: pointer;
+	background-color: white;
+	border-color :#1C2226;
+	margin-right: 16px;
+	transition: background-color 200ms;
+}
+
+.upload-box::file-selector-button:hover {
+	border-color : #00B4AA; 
+	background-color: #00B4AA;
+}
+
+.upload-box::file-selector-button:active {
+	background-color: #00B4AA;
+}
+
+.submit-novel {
+	border-radius: 4px;
+	padding: 0 60px;
+	height: 40px;
+	cursor: pointer;
+	border-color :#1C2226;
+	background-color: #FFFFFF;
+	transition: background-color 200ms;
+}
+
+.submit-novel:hover {
+	border-color : #00B4AA; 
+	background-color: #00B4AA;
+}
+
+/*Style Untuk your upload*/
+.novels-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.novels-table th, .novels-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.novels-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.novels-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.novels-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.novels-table input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+}
+
+.save-btn{
+	width: 100%;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
+
+.delete-btn {
+	width: 100%;
+    background-color: #ff5303; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #d34300;
+}
+
+/*Style Untuk carousel index*/
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.card-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
